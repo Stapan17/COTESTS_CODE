@@ -13,53 +13,16 @@ using namespace std;
 #define SORTR(a) sort(a.rbegin(), a.rend())
 #define mod 1000000007
 #define PI 3.141592653589793238
-
-void solve()
-{
-    int n, k, d, mini = 100000;
-    cin >> n >> k >> d;
-
-    vector<int> a;
-    for (int i = 0; i < n; i++)
-    {
-        int x;
-        cin >> x;
-
-        a.pb(x);
-    }
-
-    for (int i = 0; i <= n - d; i++)
-    {
-        set<int> s;
-        for (int j = i; j < (i + d); j++)
-        {
-            s.insert(a[j]);
-        }
-
-        if (s.size() == 1)
-        {
-            mini = 1;
-            break;
-        }
-
-        if (s.size() < mini)
-            mini = s.size();
-    }
-
-    cout << mini << endl;
-}
-
 int main()
 {
     IOS;
 
-    int t;
-    cin >> t;
+    long long int n, m;
+    cin >> n >> m;
 
-    while (t--)
-    {
-        solve();
-    }
+    long long int x = n * m * 2;
+
+    cout << x + 1 << endl;
 
     return 0;
 }
