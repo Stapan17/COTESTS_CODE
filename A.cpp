@@ -13,68 +13,37 @@ using namespace std;
 #define SORTR(a) sort(a.rbegin(), a.rend())
 #define mod 1000000007
 #define PI 3.141592653589793238
+
 int main()
 {
     IOS;
 
-    int n, m, k;
-    cin >> n >> m >> k;
+    int t;
+    cin >> t;
 
-    int a[n][m] = {0};
-
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < m; j++)
-            a[i][j] = 0;
-
-    for (int i = 0; i < k; i++)
+    while (t--)
     {
-        int x, y;
-        cin >> x >> y;
+        vector<int> a(3);
+        cin >> a[0] >> a[1] >> a[2];
 
-        x -= 1;
-        y -= 1;
-
-        a[x][y] = 1;
-    }
-
-    int c = 0;
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 1; j < m - 1; j++)
+        SORT(a);
+        if (a[0] != a[1] && a[1] != a[2])
         {
-            if ((a[i][j]) == 0)
-            {
-                if ((j == m - 1) && (i != n - 1))
-                {
-                    if (a[i + 1][j] == 0)
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        c = 1;
-                        break;
-                    }
-                }
-                else
-                {
-                    if ((a[i + 1][j] == 1) && (a[i][j + 1] == 1))
-                    {
-                        c = 1;
-                        break;
-                    }
-                }
-            }
+            cout << "NO" << endl;
         }
-
-        if (c == 1)
-            break;
+        else if (a[0] == a[1] && a[1] != a[2])
+        {
+            cout << "NO" << endl;
+        }
+        else
+        {
+            cout << "YES" << endl;
+            if (a[0] == a[1] && a[1] == a[2])
+                cout << a[0] << " " << a[0] << " " << a[0] << endl;
+            else
+                cout << a[0] << " " << a[0] << " " << a[1] << endl;
+        }
     }
-
-    if (c == 0)
-        cout << "YES" << endl;
-    else
-        cout << "NO" << endl;
 
     return 0;
 }
