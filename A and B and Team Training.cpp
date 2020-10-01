@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
-using namespace std;
 
 int main()
 {
+    using namespace std;
     int n, m, count = 0;
     cin >> n >> m;
     while (n > 0 && m > 0 && (n + m) >= 3)
